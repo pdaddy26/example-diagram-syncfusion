@@ -1,4 +1,28 @@
-.app-container {
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.workflow-title {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 40px;
+  background-color: #6f8ee3;
+
+  input {
+    border: none;
+    margin-left: 20px;
+    margin-top: 8px;
+    background-color: transparent;
+    color: white;
+    outline-width: 0;
+    font-size: 18px;
+  }
+}
+
+.designer-container {
+  flex: 1;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -8,12 +32,11 @@
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 250px;
-  background-color: pink;
+  background-color: #FAFAFA;
 }
 
 .diagram-container {
   flex: 1;
-  background-color: burlywood;
   display: flex;
   flex-direction: column;
 }

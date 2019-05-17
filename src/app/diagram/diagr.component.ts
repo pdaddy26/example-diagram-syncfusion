@@ -67,6 +67,7 @@ export class DiagrComponent implements OnInit {
   ngOnInit() {}
 
   initDiagram() {
+    this.selectedNode = undefined;
     this.diagram.clear();
 
     const startNode: NodeModel = {
@@ -187,6 +188,8 @@ export class DiagrComponent implements OnInit {
       } else if (args.actualObject instanceof Node) {
         // console.log('node click');
         this.selectedNode = this._flowNodes[args.actualObject.id];
+      } else {
+        this.selectedNode = undefined;
       }
     }
   }

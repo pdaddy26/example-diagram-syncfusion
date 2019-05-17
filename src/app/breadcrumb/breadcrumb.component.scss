@@ -1,13 +1,13 @@
 .container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 8px;
-  background-color: white;
+  background-color: #E3E3E3;
   border-bottom: 1px solid #ddd;
   display: flex;
 }
 
 .crumb {
   cursor: pointer;
-  color: #4F63D8;
   margin-right: 5px;
+  font-size: 10pt;
 }
