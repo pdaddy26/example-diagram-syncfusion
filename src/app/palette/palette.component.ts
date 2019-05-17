@@ -4,7 +4,6 @@ import {
   NodeModel,
   NodeConstraints,
 } from "@syncfusion/ej2-angular-diagrams";
-import { FlowStep, FlowDecision, ConsoleActivity } from "datex-flow";
 
 @Component({
   selector: "app-palette",

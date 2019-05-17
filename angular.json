@@ -29,14 +29,8 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/@syncfusion/ej2-base/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-buttons/styles/material.scss",
               "./node_modules/@syncfusion/ej2-angular-diagrams/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-dropdowns/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-inputs/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-lists/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-navigations/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-popups/styles/material.scss",
-              "./node_modules/@syncfusion/ej2-angular-splitbuttons/styles/material.scss"
+              "./node_modules/@syncfusion/ej2-angular-navigations/styles/material.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

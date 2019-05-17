@@ -20,7 +20,7 @@ export class BreadcrumbComponent implements OnInit {
     this._flow = val;
     this.crumbs.length = 0;
     this.createCrumb(this.flow);
-    console.log("breadcrumb", this.crumbs);
+    // console.log("breadcrumb", this.crumbs);
   }
   get flow() {
     return this._flow;

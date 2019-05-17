@@ -9,7 +9,6 @@ import {
   NodeConstraints,
   ConnectorModel,
   IDoubleClickEventArgs,
-  DiagramConstraints,
   AnnotationConstraints
 } from "@syncfusion/ej2-angular-diagrams";
 import {
@@ -80,7 +79,7 @@ export class DiagrComponent implements OnInit {
         constraints: AnnotationConstraints.ReadOnly
       }]
     };
-    console.log(this.flow);
+    // console.log(this.flow);
     this.diagram.add(startNode);
 
     this.flow.nodes.forEach(n => {
@@ -172,7 +171,7 @@ export class DiagrComponent implements OnInit {
   }
 
   public onDrop(args: IDropEventArgs): void {
-    console.log(args, this.diagram.nodes, this.diagram.connectors);
+    // console.log(args, this.diagram.nodes, this.diagram.connectors);
     const node = args.element as NodeModel;
     if (node.addInfo !== undefined) {
       let flownode: FlowStep | FlowDecision;
@@ -188,13 +187,13 @@ export class DiagrComponent implements OnInit {
       this.selectedNode = flownode;
     }
 
-    console.log(this.flowNodes);
+    // console.log(this.flowNodes);
   }
 
   public click(args: IClickEventArgs): void {
     if (args instanceof MouseEvent) {
     } else {
-      console.log("lala", args);
+      // console.log("lala", args);
       if (args.element instanceof DiagramComponent) {
         // console.log('diagram click');
       } else if (args.actualObject instanceof Node) {
