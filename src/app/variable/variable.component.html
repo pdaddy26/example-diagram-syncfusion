@@ -1,3 +1,13 @@
-<p>
-  variable works!
-</p>
+<table>
+    <thead>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let variable of variables">
+        <td>
+          <input [(ngModel)]="variable.name"/>
+          <img src="assets/delete.svg" (click)="remove(variable)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>

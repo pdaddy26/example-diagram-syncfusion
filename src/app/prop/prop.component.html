@@ -19,13 +19,21 @@
 
       <e-accordionitem expanded="true">
         <ng-template #header>
+          <div>Variables</div>
+        </ng-template>
+        <ng-template #content>
+          <app-variable [flow]="flowChartStep"></app-variable>
+        </ng-template>
+      </e-accordionitem>
+
+      <e-accordionitem expanded="true">
+        <ng-template #header>
           <div>Workflow Arguments</div>
         </ng-template>
         <ng-template #content>
           <app-argument [workflow]="workflow"></app-argument>
         </ng-template>
       </e-accordionitem>
-
     </e-accordionitems>
   </ejs-accordion>
 </div>

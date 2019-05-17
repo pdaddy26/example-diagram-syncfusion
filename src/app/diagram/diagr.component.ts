@@ -164,9 +164,12 @@ export class DiagrComponent implements OnInit {
         flownode = new FlowDecision();
       } else {
         flownode = new FlowStep();
-        flownode.action = ActivityFactory.Instance.create(
-          (node.addInfo as any).action
-        );
+        const action = (node.addInfo as any).action;
+        if (action === "FlowChart") {
+          flownode.action = new FlowChart();
+        } else {
+          flownode.action = ActivityFactory.Instance.create(action);
+        }
       }
       this._flowNodes[node.id] = flownode;
       this.selectedNode = flownode;

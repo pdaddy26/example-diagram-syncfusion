@@ -6,7 +6,8 @@ import {
   ConsoleActivity,
   FlowDecision,
   Argument,
-  ArgumentDirection
+  ArgumentDirection,
+  Variable
 } from "datex-flow";
 
 @Component({
@@ -24,6 +25,14 @@ export class DesignerComponent implements OnInit {
     const flowChart = new FlowChart();
     flowChart.id = `A${flowChart.id.substr(0, 7)}`;
 
+    const var1 = new Variable();
+    var1.name = "variable 1";
+    flowChart.addVariable(var1);
+
+    const var2 = new Variable();
+    var2.name = "variable 2";
+    flowChart.addVariable(var2);
+
     const step1 = new FlowStep();
     // the ID are being use as ID on html tag in the syncfusion
     // ID cannot start by a number according to html spec.
@@ -40,6 +49,11 @@ export class DesignerComponent implements OnInit {
 
     const embedFlowChart = new FlowChart();
     embedFlowChart.id = embedFlowChart.id.substr(0, 7);
+
+    const var3 = new Variable();
+    var3.name = "variable 3";
+    embedFlowChart.addVariable(var3);
+
     const step3 = new FlowStep();
     step3.id = `A${step3.id.substr(0, 7)}`;
     step3.action = embedFlowChart;
@@ -47,10 +61,19 @@ export class DesignerComponent implements OnInit {
 
     step2.next = step3.id;
 
-    const step4 = new FlowStep();
+    const step4 = new FlowDecision();
     step4.id = `A${step4.id.substr(0, 7)}`;
-    step4.action = new ConsoleActivity();
     embedFlowChart.start = step4;
+    const step4True = new FlowStep();
+    step4True.action = new ConsoleActivity();
+    step4True.id = `A${step4True.id.substr(0, 7)}`;
+    embedFlowChart.addNode(step4True);
+    const step4False = new FlowStep();
+    step4False.action = new ConsoleActivity();
+    step4False.id = `A${step4False.id.substr(0, 7)}`;
+    embedFlowChart.addNode(step4False);
+    step4.true = step4True.id;
+    step4.false = step4False.id;
 
     const conditionStep = new FlowDecision();
     conditionStep.id = `A${conditionStep.id.substr(0, 7)}`;
