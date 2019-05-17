@@ -10,6 +10,8 @@ import {
   DataBindingService
 } from "@syncfusion/ej2-angular-diagrams";
 import { AccordionModule } from "@syncfusion/ej2-angular-navigations";
+import { GridModule } from "@syncfusion/ej2-angular-grids";
+import { DropDownListModule } from "@syncfusion/ej2-angular-dropdowns";
 
 import { createCustomElement } from "@angular/elements";
 import { FormsModule } from "@angular/forms";
@@ -50,7 +52,9 @@ import { FlowComponent } from "./palette/symbols/flow/flow.component";
     SymbolPaletteAllModule,
     BrowserModule,
     FormsModule,
-    AccordionModule
+    AccordionModule,
+    GridModule,
+    DropDownListModule
   ],
   providers: [DataBindingService],
   entryComponents: [ConditionComponent, ConsoleComponent, FlowComponent],

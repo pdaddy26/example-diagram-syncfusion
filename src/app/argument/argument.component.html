@@ -1,3 +1,19 @@
-<p>
-  args works!
-</p>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Direction</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let arg of arguments">
+      <td>
+        <input [(ngModel)]="arg.name"/>
+        <img src="assets/delete.svg" (click)="remove(arg)" />
+      </td>
+      <td>
+        <select [(ngModel)]="arg.direction">
+          <option *ngFor="let key of directions" [ngValue]="key">{{ key }}</option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>

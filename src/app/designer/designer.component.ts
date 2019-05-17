@@ -1,17 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Workflow, FlowChart, FlowStep, ActivityFactory, ConsoleActivity, FlowDecision } from 'datex-flow';
+import { Component, OnInit, Input } from "@angular/core";
+import {
+  Workflow,
+  FlowChart,
+  FlowStep,
+  ConsoleActivity,
+  FlowDecision,
+  Argument,
+  ArgumentDirection
+} from "datex-flow";
 
 @Component({
-  selector: 'app-designer',
-  templateUrl: './designer.component.html',
-  styleUrls: ['./designer.component.scss']
+  selector: "app-designer",
+  templateUrl: "./designer.component.html",
+  styleUrls: ["./designer.component.scss"]
 })
 export class DesignerComponent implements OnInit {
-
   workflow: Workflow;
   flow: FlowChart;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     const flowChart = new FlowChart();
@@ -68,6 +75,16 @@ export class DesignerComponent implements OnInit {
     const wf = new Workflow();
     wf.id = `A${wf.id.substr(0, 7)}`;
     wf.flow = flowChart;
+
+    const wfArgIn = new Argument();
+    wfArgIn.direction = ArgumentDirection.In;
+    wfArgIn.name = "In Arg";
+    wf.addArgument(wfArgIn);
+
+    const wfArgOut = new Argument();
+    wfArgOut.direction = ArgumentDirection.Out;
+    wfArgOut.name = "Out Arg";
+    wf.addArgument(wfArgOut);
 
     this.workflow = wf;
     this.flow = this.workflow.flow;

@@ -1,0 +1,32 @@
+table {
+  border: 1px solid #ddd;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr {
+  cursor: pointer;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+input {
+  border: none;
+  &:hover {
+    border-bottom: 1px solid blue;
+  }
+}
+
+img {
+  cursor: pointer;
+  height: 12px;
+  float: right;
+  margin-top: 3px;
+}

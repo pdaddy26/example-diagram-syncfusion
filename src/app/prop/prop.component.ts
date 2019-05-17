@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FlowNode, FlowDecision, FlowStep, ConsoleActivity } from 'datex-flow';
+import { Workflow, FlowNode, FlowDecision, FlowStep, ConsoleActivity } from 'datex-flow';
 
 @Component({
   selector: 'app-prop',
@@ -9,6 +9,9 @@ import { FlowNode, FlowDecision, FlowStep, ConsoleActivity } from 'datex-flow';
 export class PropComponent implements OnInit {
 
   constructor() { }
+
+  @Input()
+  workflow: Workflow;
 
   @Input()
   node: FlowNode;

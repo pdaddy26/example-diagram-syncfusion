@@ -33,6 +33,7 @@ export class DiagrComponent implements OnInit {
 
   _flow: FlowChart;
   _diagramCreated = false;
+  _flowNodes: { [key: string]: FlowNode } = {};
 
   @Input()
   set flow(val: FlowChart) {
@@ -49,8 +50,6 @@ export class DiagrComponent implements OnInit {
 
   @ViewChild("diagram")
   public diagram: DiagramComponent;
-
-  flowNodes: { [key: string]: FlowNode } = {};
 
   selectedNode: FlowNode;
 
@@ -85,7 +84,7 @@ export class DiagrComponent implements OnInit {
     this.flow.nodes.forEach(n => {
       const nodeModel = this.createNodeModel(n);
       const addedNode = this.diagram.add(nodeModel);
-      this.flowNodes[addedNode.id] = n;
+      this._flowNodes[addedNode.id] = n;
     });
 
     this.flow.nodes.forEach(n => {
@@ -169,7 +168,7 @@ export class DiagrComponent implements OnInit {
           (node.addInfo as any).action
         );
       }
-      this.flowNodes[node.id] = flownode;
+      this._flowNodes[node.id] = flownode;
       this.selectedNode = flownode;
     }
 
@@ -184,20 +183,16 @@ export class DiagrComponent implements OnInit {
         // console.log('diagram click');
       } else if (args.actualObject instanceof Node) {
         // console.log('node click');
-        this.selectedNode = this.flowNodes[args.actualObject.id];
+        this.selectedNode = this._flowNodes[args.actualObject.id];
       }
     }
-  }
-
-  public selectionChange(args: ISelectionChangeEventArgs): void {
-    // console.log(args);
   }
 
   public doubleClick(args: IDoubleClickEventArgs): void {
     // console.log("double click", args);
     if (args.source instanceof Node) {
       // console.log('node click');
-      const node = this.flowNodes[args.source.id];
+      const node = this._flowNodes[args.source.id];
       if (node instanceof FlowStep && node.action instanceof FlowChart) {
         this.flow = node.action;
         this.flowChange.emit(this.flow);
