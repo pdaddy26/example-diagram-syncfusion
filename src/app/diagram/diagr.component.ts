@@ -89,46 +89,21 @@ export class DiagrComponent implements OnInit {
     });
 
     this.flow.nodes.forEach(n => {
-      let connector: ConnectorModel;
-
       if (n instanceof FlowStep && n.next !== undefined) {
-        connector = {
-          sourceID: n.id,
-          targetID: n.next,
-          type: 'Orthogonal'
-        };
-        this.diagram.add(connector);
+        this.diagram.add(this.createConnectorModel(n.id, n.next));
       } else if (n instanceof FlowDecision) {
         if (n.true !== undefined) {
-          this.diagram.add({
-            sourceID: n.id,
-            targetID: n.true,
-            annotations: [{
-              content: 'true'
-            }],
-            type: 'Orthogonal'
-          });
+          this.diagram.add(this.createConnectorModel(n.id, n.true, 'true'));
         }
 
         if (n.false !== undefined) {
-          this.diagram.add({
-            sourceID: n.id,
-            targetID: n.false,
-            annotations: [{
-              content: 'false'
-            }],
-            type: 'Orthogonal'
-          });
+          this.diagram.add(this.createConnectorModel(n.id, n.false, 'false'));
         }
       }
     });
 
     if (this.flow.start !== undefined) {
-      this.diagram.add({
-        sourceID: startNode.id,
-        targetID: this.flow.start.id,
-        type: 'Orthogonal'
-      });
+      this.diagram.add(this.createConnectorModel(startNode.id, this.flow.start.id));
     }
 
     this.diagram.refresh(); // this will center it
@@ -150,6 +125,17 @@ export class DiagrComponent implements OnInit {
       }]
     };
     return nodeModel;
+  }
+
+  createConnectorModel(srcId: string, destId: string, annotation?: string): ConnectorModel {
+    return {
+      sourceID: srcId,
+      targetID: destId,
+      annotations: [{
+        content: annotation === undefined ? '' : annotation
+      }],
+      type: 'Orthogonal'
+    };
   }
 
   getNodeContent(flowNode: FlowNode): string {

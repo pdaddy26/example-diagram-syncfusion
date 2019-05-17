@@ -8,8 +8,12 @@
       <app-breadcrumb [workflow]="workflow" [(flow)]="flow"></app-breadcrumb>
     </div>
     <div class="diagram-inner-container">
-      <div class="diagram"><app-diagram [(flow)]="flow" #diagram></app-diagram></div>
-      <div class="prop"><app-prop [node]="diagram.selectedNode"></app-prop></div>
+      <div class="diagram">
+        <app-diagram [(flow)]="flow" #diagram></app-diagram>
+      </div>
+      <div class="prop">
+        <app-prop [node]="diagram.selectedNode"></app-prop>
+      </div>
     </div>
   </div>
 </div>
