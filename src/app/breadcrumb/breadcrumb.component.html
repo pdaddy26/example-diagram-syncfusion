@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="crumb" *ngFor="let flow of crumbs; let i = index" (click)="onCrumbClick(flow)">
+    <ng-container *ngIf="i !== 0">/</ng-container>
+    Flow {{ flow.id }}
+  </div>
+</div>

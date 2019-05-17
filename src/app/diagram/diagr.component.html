@@ -1,0 +1,14 @@
+<ejs-diagram
+  #diagram
+  id="diagram"
+  width="100%"
+  height="100%"
+  [layout]='layout'
+  [getNodeDefaults]='nodeDefaults'
+  (created)='created($event)'
+  (drop)="onDrop($event)"
+  (click)="click($event)"
+  (selectionChange)="selectionChange($event)"
+  (doubleClick)="doubleClick($event)"
+>
+</ejs-diagram>

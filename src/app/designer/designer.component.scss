@@ -1,0 +1,35 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.palette {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 250px;
+  background-color: pink;
+}
+
+.diagram-container {
+  flex: 1;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+}
+
+.diagram-inner-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.diagram {
+  flex: 1;
+}
+
+.prop {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 300px;
+}

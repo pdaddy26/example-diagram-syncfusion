@@ -1,0 +1,21 @@
+<div class="container">
+  <ejs-accordion>
+    <e-accordionitems>
+      <e-accordionitem expanded="true">
+        <ng-template #header>
+          <div>Properties</div>
+        </ng-template>
+        <ng-template #content>
+          <app-condition-prop
+            *ngIf="node && isDecision()"
+            [decision]="decisionStep"
+          ></app-condition-prop>
+          <app-console-prop
+            *ngIf="node && isConsoleStep()"
+            [console]="consoleStep"
+          ></app-console-prop>
+        </ng-template>
+      </e-accordionitem>
+    </e-accordionitems>
+  </ejs-accordion>
+</div>

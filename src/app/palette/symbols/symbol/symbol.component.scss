@@ -1,0 +1,31 @@
+.symbol-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+  background-color: white;
+}
+
+.symbol-desc-outer {
+  display: flex;
+  flex-direction: column;
+}
+
+.symbol-desc-inner {
+  margin: auto;
+}
+
+.symbol-icon {
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+}
+
+.symbol-title {
+  font-weight: bold;
+}
+
+.symbol-detail {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 8pt;
+}
